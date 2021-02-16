@@ -85,7 +85,7 @@ class _PlantShopHomePageState extends State<PlantShopHomePage> {
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outlined),
+            icon: Image.asset('images/person.png'),
             label: '',
           ),
         ],
