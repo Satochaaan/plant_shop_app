@@ -34,18 +34,28 @@ class PlantShopHomePage extends StatefulWidget {
 }
 
 class _PlantShopHomePageState extends State<PlantShopHomePage> {
-  int _counter = 0;
+  int _selectedIndex = 0;
 
-  void _incrementCounter() {
+  void _onPageChanged(int index) {
     setState(() {
-      _counter++;
+      _selectedIndex = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: kColorGreen,
+        leading: Icon(Icons.arrow_back_ios_rounded),
+        actions: <Widget>[
+          IconButton(
+            icon: Icon(Icons.more_horiz_outlined),
+            onPressed: () {},
+            color: Colors.white,
+          ),
+        ],
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -55,6 +65,36 @@ class _PlantShopHomePageState extends State<PlantShopHomePage> {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.favorite_outline),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart_outlined),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.zoom_out_map_outlined),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outlined),
+            label: '',
+          ),
+        ],
+        backgroundColor: kColorDarkGreen,
+        selectedItemColor: kColorWhite,
+        unselectedItemColor: kColorWhite,
+        currentIndex: _selectedIndex,
+        type: BottomNavigationBarType.fixed,
+        onTap: _onPageChanged,
       ),
     );
   }
