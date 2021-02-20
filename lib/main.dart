@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 const kColorDarkGreen = Color(0xff01714e);
 const kColorGreen = Color(0xff05986a);
 const kColorWhite = Color(0xffffffff);
+const kColorSearchField = Color(0xffF0F0F0);
 
 void main() {
   runApp(MyApp());
@@ -44,6 +45,8 @@ class _PlantShopHomePageState extends State<PlantShopHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final Size deviceSize = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -62,6 +65,47 @@ class _PlantShopHomePageState extends State<PlantShopHomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             _Header(),
+            Text(
+              'Explor More',
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 8),
+              width: deviceSize.width * 0.7,
+              child: TextField(
+                decoration: const InputDecoration(
+                  hintText: 'Search |',
+                  hintStyle: TextStyle(
+                    color: kColorGreen,
+                  ),
+                  filled: true,
+                  fillColor: kColorSearchField,
+                  suffixIcon: Icon(
+                    Icons.search,
+                    size: 30,
+                    color: kColorGreen,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(28.0),
+                    ),
+                    borderSide: BorderSide(
+                      width: 0,
+                      color: kColorSearchField,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(28.0),
+                    ),
+                    borderSide: BorderSide(
+                      width: 0,
+                      color: kColorSearchField,
+                    ),
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -99,31 +143,12 @@ class _PlantShopHomePageState extends State<PlantShopHomePage> {
   }
 }
 
-class _HeaderCurveClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    return Path()
-      ..lineTo(0, size.height * 0.6)
-      ..quadraticBezierTo(
-        size.width * 0.5,
-        size.height,
-        size.width,
-        size.height * 0.6,
-      )
-      ..lineTo(size.width, 0)
-      ..close();
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) {
-    return true;
-  }
-}
-
 class _Header extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final double height = 400;
+    final double height = 320;
+    final Size devideSize = MediaQuery.of(context).size;
+
     return Container(
       height: height,
       child: Stack(
@@ -139,7 +164,11 @@ class _Header extends StatelessWidget {
                 children: [
                   Text(
                     'Our Plants',
-                    style: TextStyle(fontSize: 32.0, color: kColorWhite),
+                    style: TextStyle(
+                      fontSize: 32.0,
+                      color: kColorWhite,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Text(
                     'Lorem Ipsum Dammy Plants',
@@ -184,10 +213,79 @@ class _Header extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
+          Positioned(
+            left: 0,
+            bottom: 35.0,
+            child: RaisedButton(
+              padding: EdgeInsets.all(17.0),
+              child: Icon(Icons.arrow_back_outlined),
+              color: kColorDarkGreen,
+              textColor: kColorWhite,
+              shape: const CircleBorder(
+                side: BorderSide(
+                  color: kColorDarkGreen,
+                  width: 0,
+                  style: BorderStyle.solid,
+                ),
+              ),
+              onPressed: () {},
+            ),
+          ),
+          Positioned(
+            bottom: -20.0,
+            child: SizedBox(
+              width: devideSize.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('images/gimam.png'),
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            right: 0,
+            bottom: 35.0,
+            child: RaisedButton(
+              padding: EdgeInsets.all(17.0),
+              child: Icon(Icons.arrow_forward_outlined),
+              color: kColorDarkGreen,
+              textColor: kColorWhite,
+              shape: const CircleBorder(
+                side: BorderSide(
+                  color: kColorDarkGreen,
+                  width: 0,
+                  style: BorderStyle.solid,
+                ),
+              ),
+              onPressed: () {},
+            ),
+          ),
         ],
       ),
     );
+  }
+}
+
+class _HeaderCurveClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    return Path()
+      ..lineTo(0, size.height * 0.7)
+      ..quadraticBezierTo(
+        size.width * 0.5,
+        size.height * 1.2,
+        size.width,
+        size.height * 0.7,
+      )
+      ..lineTo(size.width, 0)
+      ..close();
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) {
+    return true;
   }
 }
 
