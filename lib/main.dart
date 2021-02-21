@@ -106,6 +106,7 @@ class _PlantShopHomePageState extends State<PlantShopHomePage> {
                 ),
               ),
             ),
+            _PlantList(),
           ],
         ),
       ),
@@ -307,6 +308,77 @@ class _HeaderBackground extends StatelessWidget {
         decoration: BoxDecoration(
           color: kColorGreen,
         ),
+      ),
+    );
+  }
+}
+
+class _PlantList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: SizedBox(
+            height: 238,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              children: [
+                _PlantListTile(),
+                _PlantListTile(),
+                _PlantListTile(),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _PlantListTile extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 238,
+      width: 165,
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              height: 137.0,
+              width: 131.0,
+              color: kColorGreen,
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              width: 131.0,
+              height: 50,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Gbit Plant',
+                    style: TextStyle(
+                      color: kColorWhite,
+                      fontSize: 14.0,
+                    ),
+                  ),
+                  Text(
+                    '\$88',
+                    style: TextStyle(
+                      color: kColorWhite,
+                      fontSize: 14.0,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
