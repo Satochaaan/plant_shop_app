@@ -324,9 +324,15 @@ class _PlantList extends StatelessWidget {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                _PlantListTile(),
-                _PlantListTile(),
-                _PlantListTile(),
+                _PlantListTile(
+                  plantImage: Image.asset('images/plant1.png'),
+                ),
+                _PlantListTile(
+                  plantImage: Image.asset('images/plant2.png'),
+                ),
+                _PlantListTile(
+                  plantImage: Image.asset('images/plant1.png'),
+                ),
               ],
             ),
           ),
@@ -337,11 +343,20 @@ class _PlantList extends StatelessWidget {
 }
 
 class _PlantListTile extends StatelessWidget {
+  final Image plantImage;
+
+  const _PlantListTile({
+    Key key,
+    this.plantImage,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    final double tileWidth = 165;
+
     return Container(
       height: 238,
-      width: 165,
+      width: tileWidth,
       child: Stack(
         children: [
           Align(
@@ -349,7 +364,10 @@ class _PlantListTile extends StatelessWidget {
             child: Container(
               height: 137.0,
               width: 131.0,
-              color: kColorGreen,
+              decoration: BoxDecoration(
+                color: kColorGreen,
+                borderRadius: BorderRadius.circular(7),
+              ),
             ),
           ),
           Align(
@@ -377,7 +395,11 @@ class _PlantListTile extends StatelessWidget {
                 ],
               ),
             ),
-          )
+          ),
+          Positioned(
+            top: 10,
+            child: this.plantImage,
+          ),
         ],
       ),
     );
