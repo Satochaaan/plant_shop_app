@@ -1,16 +1,8 @@
 # plant_shop_app
 
-Plant Shop App Design.
+以下のデザインを元にUI実装のみを行いました。
 
-## Getting Started
+[元デザイン](https://dribbble.com/shots/9328506-Freebie-Plant-Shop-App-Design?utm_source=Clipboard_Shot&utm_campaign=Designer_zr&utm_content=Freebie%20-%20Plant%20Shop%20App%20Design&utm_medium=Social_Share&utm_source=Clipboard_Shot&utm_campaign=Designer_zr&utm_content=Freebie%20-%20Plant%20Shop%20App%20Design&utm_medium=Social_Share)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 実装結果
+![plant_shop](https://user-images.githubusercontent.com/44778185/119743068-0879ce80-bec4-11eb-8683-69b0f5de7662.png)
